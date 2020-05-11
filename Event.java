@@ -5,25 +5,24 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "museums")
+@Entity(tableName = "events")
 
-public class Museum {
-@PrimaryKey(autoGenerate = true)
+public class Event {
+    @PrimaryKey(autoGenerate = true)
     @NonNull
-    @ColumnInfo(name = "museumId")
+    @ColumnInfo(name = "eventId")
     private int mId;
-
     @Nullable
-    @ColumnInfo(name = "museumName")
+    @ColumnInfo(name = "eventName")
     private String mName;
-
     private String mStyle;
 
-    public Museum(@Nullable String name, String style, int score, String creationDate) {
+    public Event(@Nullable String name, String style, int score, String creationDate, String Place) {
         mName = name;
         mStyle = style;
         mScore = score;
         mCreationDate = creationDate;
+        mPlace = place; 
     }
 
     public int getId() {
@@ -65,8 +64,15 @@ public class Museum {
     public void setCreationDate(String creationDate) {
         mCreationDate = creationDate;
     }
+    public String getPlace() {
+        return mPlace;
+    }
 
+    public void setPlace(String place) {
+        mPlace = place;
+    }
+    
     private int mScore;
     private String mCreationDate;
-    
+    private String mPlace;  
 }
